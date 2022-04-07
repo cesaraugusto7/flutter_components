@@ -1,16 +1,18 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CButton extends StatelessWidget {
   late double height, width, borderSize, borderRadius, fontSize;
   late String text;
   late Object colorText, colorButton, colorBorder;
-  var onTap;
+  final VoidCallback onClick;
 
   CButton({
     Key? key,
     required this.height,
     required this.width,
-    required this.onTap,
+    required this.onClick,
     String? text,
     double? borderSize,
     double? borderRadius,
@@ -31,7 +33,7 @@ class CButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onClick,
       child: Container(
         height: height,
         width: width,
